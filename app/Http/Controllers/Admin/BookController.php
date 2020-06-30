@@ -6,6 +6,8 @@ namespace App\Http\Controllers\Admin;
 // use Illuminate\Http\Request;
 use App\Model\Book;
 use App\Model\Category;
+use App\Model\Author;
+
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\InteractsWithMedia;
 use App\Http\Requests\MassDestroyBookRequest;
@@ -34,8 +36,9 @@ class BookController extends Controller
         abort_if(Gate::denies('book_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $categories = Category::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $authors = Author::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.books.create', compact('categories'));
+        return view('admin.books.create', compact('categories', 'authors'));
     }
 
     public function store(StoreBookRequest $request)

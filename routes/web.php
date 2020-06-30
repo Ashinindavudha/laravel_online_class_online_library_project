@@ -54,6 +54,12 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function(){
     Route::post('books/media', 'BookController@storeMedia')->name('books.storeMedia');
     Route::post('books/ckmedia', 'BookController@storeCKEditorImages')->name('books.storeCKEditorImages');
     Route::resource('books', 'BookController');
+
+    // Authors
+    Route::delete('authors/destroy', 'AuthorController@massDestroy')->name('authors.massDestroy');
+    Route::post('authors/media', 'AuthorController@storeMedia')->name('authors.storeMedia');
+    Route::post('authors/ckmedia', 'AuthorController@storeCKEditorImages')->name('authors.storeCKEditorImages');
+    Route::resource('authors', 'AuthorController');
 });
  
 

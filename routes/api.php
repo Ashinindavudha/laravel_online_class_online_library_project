@@ -34,4 +34,8 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Books
     Route::post('books/media', 'BookApiController@storeMedia')->name('books.storeMedia');
     Route::apiResource('books', 'BookApiController');
+
+    // Authors
+    Route::post('authors/media', 'AuthorApiController@storeMedia')->name('authors.storeMedia');
+    Route::apiResource('authors', 'AuthorApiController');
 });

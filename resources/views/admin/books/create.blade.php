@@ -20,6 +20,20 @@
                 <span class="help-block">{{ trans('cruds.book.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="author_id">{{ trans('cruds.author.fields.name') }}</label>
+                <select class="form-control select2 {{ $errors->has('author') ? 'is-invalid' : '' }}" name="author_id" id="author_id">
+                    @foreach($authors as $id => $author)
+                        <option value="{{ $id }}" {{ old('author_id') == $id ? 'selected' : '' }}>{{ $author }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('author'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('author') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.author.fields.name_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label for="series_title">{{ trans('cruds.book.fields.series_title') }}</label>
                 <input class="form-control {{ $errors->has('series_title') ? 'is-invalid' : '' }}" type="text" name="series_title" id="series_title" value="{{ old('series_title', '') }}">
                 @if($errors->has('series_title'))

@@ -93,7 +93,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Book Utilities:</h6>
               <a class="collapse-item" href="{{ route('categories.index') }}">BookCategory</a>
-              <a class="collapse-item" href="{{ route('books.index')}}">Library Book</a>
+             {{--  <a class="collapse-item" href="{{ route('books.index')}}">Library Book</a> --}}
               <a class="collapse-item" href="utilities-animation.html">Animations</a>
               <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>

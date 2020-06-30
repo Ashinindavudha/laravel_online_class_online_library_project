@@ -141,6 +141,28 @@ return [
             'deleted_at_helper' => '',
         ],
     ],
+
+    'author'         => [
+        'title'          => 'Author',
+        'title_singular' => 'Author',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'name'              => 'Author Name',
+            'name_helper'       => '',
+            'author_bio'        => 'Author Bio',
+            'author_bio_helper' => '',
+            'book'              => 'Book',
+            'book_helper'       => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+        ],
+    ],
+
     'member'     => [
         'title'          => 'SBA-M Library Member',
         'title_singular' => 'Library Member',

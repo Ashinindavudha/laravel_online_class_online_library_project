@@ -27,6 +27,7 @@ class Book extends Model implements HasMedia
 
     protected $fillable = [
         'title',
+        'author_id',
         'series_title',
         'call_number',
         'publisher',
@@ -73,4 +74,8 @@ class Book extends Model implements HasMedia
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+    public function author()
+     {
+         return $this->belongsTo(Author::class, 'author_id');
+     }
 }
