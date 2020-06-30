@@ -7,7 +7,7 @@
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("admin.authors.store") }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("authors.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label class="required" for="name">{{ trans('cruds.author.fields.name') }}</label>
@@ -54,7 +54,7 @@
               return new Promise(function(resolve, reject) {
                 // Init request
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', '/admin/authors/ckmedia', true);
+                xhr.open('POST', '/authors/ckmedia', true);
                 xhr.setRequestHeader('x-csrf-token', window._token);
                 xhr.setRequestHeader('Accept', 'application/json');
                 xhr.responseType = 'json';

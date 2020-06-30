@@ -6,9 +6,9 @@ use App\Model\Author;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\InteractsWithMedia;
-use App\Http\Requests\MassDestroyBookRequest;
-use App\Http\Requests\StoreBookRequest;
-use App\Http\Requests\UpdateBookRequest;
+use App\Http\Requests\MassDestroyAuthorRequest;
+use App\Http\Requests\StoreAuthorRequest;
+use App\Http\Requests\UpdateAuthorRequest;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\Models\Media;
@@ -42,7 +42,7 @@ class AuthorController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $author->id]);
         }
 
-        return redirect()->route('admin.authors.index');
+        return redirect()->route('authors.index');
     }
 
     public function edit(Author $author)
@@ -56,7 +56,7 @@ class AuthorController extends Controller
     {
         $author->update($request->all());
 
-        return redirect()->route('admin.authors.index');
+        return redirect()->route('authors.index');
     }
 
     public function show(Author $author)

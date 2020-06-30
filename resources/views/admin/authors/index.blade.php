@@ -3,7 +3,7 @@
 @can('author_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.authors.create') }}">
+            <a class="btn btn-success" href="{{ route('authors.create') }}">
                 {{ trans('global.add') }} {{ trans('cruds.author.title_singular') }}
             </a>
         </div>
@@ -47,19 +47,19 @@
                             </td>
                             <td>
                                 @can('author_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.authors.show', $author->id) }}">
+                                    <a class="btn btn-xs btn-primary" href="{{ route('authors.show', $author->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
                                 @can('author_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.authors.edit', $author->id) }}">
+                                    <a class="btn btn-xs btn-info" href="{{ route('authors.edit', $author->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
                                 @can('author_delete')
-                                    <form action="{{ route('admin.authors.destroy', $author->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                    <form action="{{ route('authors.destroy', $author->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -88,7 +88,7 @@
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.authors.massDestroy') }}",
+    url: "{{ route('authors.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {

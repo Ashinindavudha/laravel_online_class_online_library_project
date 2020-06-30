@@ -327,6 +327,37 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2019-09-10 14:00:26',
                 'updated_at' => '2019-09-10 14:00:26',
             ],
+            [
+                'id'         => '52',
+                'title'      => 'author_create',
+                'created_at' => '2019-09-10 14:00:26',
+                'updated_at' => '2019-09-10 14:00:26',
+            ],
+            [
+                'id'         => '53',
+                'title'      => 'author_edit',
+                'created_at' => '2019-09-10 14:00:26',
+                'updated_at' => '2019-09-10 14:00:26',
+            ],
+            [
+                'id'         => '54',
+                'title'      => 'author_show',
+                'created_at' => '2019-09-10 14:00:26',
+                'updated_at' => '2019-09-10 14:00:26',
+            ],
+            [
+                'id'         => '55',
+                'title'      => 'author_delete',
+                'created_at' => '2019-09-10 14:00:26',
+                'updated_at' => '2019-09-10 14:00:26',
+            ],
+
+            [
+                'id'         => '56',
+                'title'      => 'author_access',
+                'created_at' => '2019-09-10 14:00:26',
+                'updated_at' => '2019-09-10 14:00:26',
+            ],
 
         ];
 
