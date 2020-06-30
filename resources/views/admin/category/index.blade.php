@@ -31,7 +31,7 @@
 							{{ trans('cruds.Category.fields.id') }}
 						</th>
 						<th>
-							{{ trans('cruds.Category.fields.bookcategory') }}
+							{{ trans('cruds.Category.fields.name') }}
 						</th>
 						<th>
 							&nbsp;

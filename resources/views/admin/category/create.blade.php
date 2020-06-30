@@ -12,7 +12,7 @@
         <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-                <label for="name">{{ trans('cruds.Category.fields.bookcategory') }}*</label>
+                <label for="name">{{ trans('cruds.Category.fields.name') }}*</label>
                 <input type="text" id="name" name="name" class="form-control" required>
                 @if($errors->has('name'))
                     <p class="help-block">

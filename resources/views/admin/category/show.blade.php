@@ -22,7 +22,7 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.Category.fields.bookcategory') }}
+                            {{ trans('cruds.Category.fields.name') }}
                         </th>
                         <td>
                             {{ $category->name }}

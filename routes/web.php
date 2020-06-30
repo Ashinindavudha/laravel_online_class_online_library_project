@@ -7,9 +7,16 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| Route::redirect('/', '/login');
+Route::get('/home', function () {
+    if (session('status')) {
+        return redirect()->route('admin.home')->with('status', session('status'));
+    }
+
+    return redirect()->route('admin.home');
+});
+
+Auth::routes(['register' => false]);
 |
 */
 
@@ -41,5 +48,12 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function(){
     //Category Route
 	Route::delete('categories/destroy', 'CategoryController@massDestroy')->name('categories.massDestroy');
 	Route::resource('categories', 'CategoryController');
- 
+
+	// Books
+    Route::delete('books/destroy', 'BookController@massDestroy')->name('books.massDestroy');
+    Route::post('books/media', 'BookController@storeMedia')->name('books.storeMedia');
+    Route::post('books/ckmedia', 'BookController@storeCKEditorImages')->name('books.storeCKEditorImages');
+    Route::resource('books', 'BookController');
 });
+ 
+
