@@ -56,7 +56,7 @@ class Book extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null): void
     {
-        $this->addMediaConversion('thumb')->width(50)->height(50);
+        $this->addMediaConversion('thumb')->width(368)->height(232);
     }
 
     public function getCoverImageAttribute()

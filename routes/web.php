@@ -18,11 +18,14 @@ Route::get('/home', function () {
 
 Auth::routes(['register' => false]);
 |
-*/
+
 
 Route::get('/', function () {
 	return view('welcome');
 });
+*/
+
+Route::resource('/', 'User\WelcomeController');
 Route::redirect('admin-login', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => true]);

@@ -1,7 +1,7 @@
 <header>
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark indigo">
-    <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+    <a class="navbar-brand" href="#"><strong>Online | Library</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -89,7 +89,7 @@
                 <div class="full-bg-img flex-center white-text">
                   <ul class="animated fadeIn col-10 list-unstyled">
                     <li>
-                      <h1 class="h1-responsive font-weight-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
+                      <h1 class="h1-responsive font-weight-bold">Welcome To Our Online Library</h1>
                     </li>
                     <li>
                       <p>Tempora incidunt ut labore et dolore veritatis et quasi architecto beatae</p>
@@ -111,7 +111,7 @@
                 <div class="full-bg-img flex-center white-text">
                   <ul class="animated fadeIn col-10 list-unstyled">
                     <li>
-                      <h1 class="h1-responsive font-weight-bold">Nemo enim ipsam voluptatem quia voluptas sit </h1>
+                      <h1 class="h1-responsive font-weight-bold">Welcome To Our Online Library </h1>
                     </li>
                     <li>
                       <p>Nemo enim ipsamvoluptatem quia veritatis et quasi architecto beatae</p>
@@ -132,7 +132,7 @@
                 <div class="full-bg-img flex-center white-text">
                   <ul class="animated fadeIn col-10 list-unstyled">
                     <li>
-                      <h1 class="h1-responsive font-weight-bold">Sed ut perspiciatis unde omnis iste natus sit voluptatem</h1>
+                      <h1 class="h1-responsive font-weight-bold">Welcome To Our Online Library</h1>
                     </li>
                     <li>
                       <p>Unde omnis iste natus sit voluptatem veritatis et quasi architecto beatae</p>
