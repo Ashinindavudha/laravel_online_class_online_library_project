@@ -126,4 +126,20 @@ class BookController extends Controller
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
+
+    public function search(Request $request)
+    {
+        //dd($request);
+        $q = $request->Input( 'q' );
+    if($q != ""){
+    $book = Book::where ( 'title', 'LIKE', '%' . $q . '%' )->orWhere ( 'series_title', 'LIKE', '%' . $q . '%' )->paginate (5)->setPath ( '' );
+    $pagination = $book->appends ( array (
+                'q' => Input( 'q' ) 
+        ) );
+    //dd($book);
+    if (count ( $book ) > 0)
+        return view ( 'search' )->withDetails ( $book )->withQuery ( $q );
+    }
+        return view ( 'search' )->withMessage ( 'No Details found. Try to search again !' );
+    }
 }

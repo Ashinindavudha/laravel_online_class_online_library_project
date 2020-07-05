@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,15 +12,13 @@ use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 
 
-class Book extends Model implements HasMedia 
+class Book extends Model implements Searchable
 {
-    use SoftDeletes, InteractsWithMedia;
+    use SoftDeletes;
 
     public $table = 'books';
 
-    protected $appends = [
-        'cover_image',
-    ];
+   
 
     protected $dates = [
         'created_at',
@@ -57,30 +55,16 @@ class Book extends Model implements HasMedia
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaConversion('thumb')->width(368)->height(232);
-    }
-
-    public function getCoverImageAttribute()
-    {
-        $files = $this->getMedia('cover_image');
-        $files->each(function ($item) {
-            $item->url       = $item->getUrl();
-            $item->thumbnail = $item->getUrl('thumb');
-        });
-
-        return $files;
-    }
+    
 
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
-    public function author()
+   /* public function author()
      {
-         return $this->belongsTo(Author::class, 'author_id');
-     }
+         return $this->belongsTo(App\Model\Author::class, 'author_id');
+     }*/
 
 
      public function getSearchResult(): SearchResult

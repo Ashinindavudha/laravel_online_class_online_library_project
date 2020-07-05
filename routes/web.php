@@ -26,6 +26,23 @@ Route::get('/', function () {
 */
 
 Route::resource('/', 'User\WelcomeController');
+Route::post('/search', 'User\SearchController@search')->name('search');
+Route::get('/ebooks/{book}', 'User\BookSearchController@show')->name('ebooks.show');
+Route::get('/ecategory/{category}', 'User\CategorySearchController@show')->name('ecategory.show');
+
+
+//Route::post('search', 'User\WelcomeController@search');
+ /*Route::get('autosearch', 'User\BookSearchController@bookSearch');
+ Route::get('booksearch', 'User\BookSearchController@index');
+
+ Route::get('searchbook','User\BookSearchController@index');
+Route::post('/searches/ebook/searchesebook/','User\BookSearchController@getBook')->name('searches.ebook');
+
+Route::resource('ebooks', 'User\SearchController');
+Route::get('searches', 'User\SearchController@search');
+*/
+Route::view('api/test', 'api_test');
+
 Route::redirect('admin-login', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => true]);
@@ -65,4 +82,11 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function(){
     Route::resource('authors', 'AuthorController');
 });
  
+// Route::get('/esearch', 'User\SearchController@index')->name('esearch');
+// Route::post('/search', 'User\SearchController@search')->name('search');
+// Route::get('/ebooks/{book}', 'User\EbookSearchController@show')->name('ebooks.show');
+// Route::get('/ecategory/{category}', 'User\CategorySearchController@show')->name('ecategory.show');
+
+
+
 

@@ -6,12 +6,17 @@
     <div class="container">
         <!-- Search form -->
         <div class="active-pink-3 active-pink-4 mb-4">
-          <form class="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2 mt-2">
+          <form class="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2 mt-2" action="{{ route('search') }}" method="POST" enctype="multipart/form-data">
+            @csrf
               <i class="fas fa-search" aria-hidden="true"></i>
-              <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+              <input class="form-control form-control-sm ml-3 w-75" id="search" name="query" type="text" placeholder="Search"
               aria-label="Search">
+    <input type="submit" class="btn btn-sm btn-primary" value="Search" />
+
           </form>
       </div>
+
+      
       <!--Section heading-->
       <h2 class="text-center h2 my-5 pt-4">Recent posts</h2>
       <!--Section description-->
@@ -56,8 +61,7 @@
 
                         </div>
                         <!--Grid row-->
-                        <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
-                        placeat facere possimus voluptas...</p>
+                        <p class="dark-grey-text">{{html_entity_decode($book->series_title) }}</p>
                         <a class="text-uppercase font-small font-weight-bold spacing">Read more</a>
                         <hr class="mt-1" style="max-width: 90px">
                     </div>
@@ -383,3 +387,20 @@
 
 
 @endsection
+
+@section('scripts')
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+
+<script>
+        var route = "{{ url('book/searches') }}";
+        $('#search').typeahead({
+            source: function (term, process) {
+                return $.get(route, { term: term }, function (data) {
+                    return process(data);
+                })
+            }
+        })
+    </script>
+
+    @stop

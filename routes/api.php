@@ -39,3 +39,6 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     Route::post('authors/media', 'AuthorApiController@storeMedia')->name('authors.storeMedia');
     Route::apiResource('authors', 'AuthorApiController');
 });
+
+
+Route::resource('apicategories', 'Api\CategoryApiController@index');

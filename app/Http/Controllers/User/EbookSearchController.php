@@ -1,15 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\User;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\Book;
+use App\Book;
 
-//use App\Model\Book;
-use Spatie\Searchable\Search;
-
-
-class WelcomeController extends Controller
+class EbookSearchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,23 +15,8 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $data = Book::orderBy('id', 'desc')->paginate(5);
-
-        return view('welcome', [
-            "books" => $data
-        ]);
-       // return view('welcome', compact('$data'));
+        //
     }
-
-    // public function search(Request $request)
-    // {
-    //     $searchResults = (new Search())
-    //         ->registerModel(Book::class, 'title')
-    //         ->registerModel(Category::class, 'name')
-    //         ->perform($request->input('query'));
-
-    //     return view('user.search.index', compact('searchResults'));
-    // }
 
     /**
      * Show the form for creating a new resource.
@@ -63,9 +45,9 @@ class WelcomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Book $book)
     {
-        //
+        return view('book', compact('book'));
     }
 
     /**
@@ -101,20 +83,4 @@ class WelcomeController extends Controller
     {
         //
     }
-
-    //  public function search(Request $request)
-    // {
-    //     //dd($request);
-    //     $q = $request->Input( 'q' );
-    // if($q != ""){
-    // $book = Book::where ( 'title', 'LIKE', '%' . $q . '%' )->orWhere ( 'series_title', 'LIKE', '%' . $q . '%' )->paginate (5)->setPath ( '' );
-    // $pagination = $book->appends ( array (
-    //             'q' => Input( 'q' ) 
-    //     ) );
-    // //dd($book);
-    // if (count ( $book ) > 0)
-    //     return view ( 'welcome' )->withDetails ( $book )->withQuery ( $q );
-    // }
-    //     return view ( 'welcome' )->withMessage ( 'No Details found. Try to search again !' );
-    // }
 }
